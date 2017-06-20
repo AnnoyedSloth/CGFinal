@@ -30,6 +30,9 @@
     <ClCompile Include="Manager.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Objects.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CreateDevice.rc">
@@ -46,5 +49,8 @@
     <CLInclude Include="resource.h">
       <Filter>Header</Filter>
     </CLInclude>
+    <ClInclude Include="Objects.h">
+      <Filter>Header</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

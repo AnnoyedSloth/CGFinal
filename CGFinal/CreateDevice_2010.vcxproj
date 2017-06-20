@@ -374,12 +374,14 @@
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
+    <ClCompile Include="Objects.cpp" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Manager.h" />
+    <ClInclude Include="Objects.h" />
     <CLInclude Include="resource.h" />
     <ResourceCompile Include="CreateDevice.rc" />
   </ItemGroup>
