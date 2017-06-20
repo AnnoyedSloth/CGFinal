@@ -27,7 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>CreateDevice</ProjectName>
+    <ProjectName>Shooting</ProjectName>
     <ProjectGuid>{D3D09001-96D0-4629-88B8-122C0256058C}</ProjectGuid>
     <RootNamespace>CreateDevice</RootNamespace>
     <Keyword>Win32Proj</Keyword>
@@ -371,11 +371,15 @@
     <None Include="DXUT\Optional\directx.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CreateDevice.cpp" />
+    <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Manager.cpp" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ground.h" />
+    <ClInclude Include="Manager.h" />
     <CLInclude Include="resource.h" />
     <ResourceCompile Include="CreateDevice.rc" />
   </ItemGroup>
