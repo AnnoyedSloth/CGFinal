@@ -1,5 +1,7 @@
-#include<d3dx9math.h>
+#include"stdafx.h"
 #include"Objects.h"
+#include<d3dx9math.h>
+
 
 Objects::Objects() {
 }
@@ -8,6 +10,7 @@ Objects::~Objects() {
 }
 
 void Objects::OnInit() {
+	int i;
 	RECT rect;
 	D3DVIEWPORT9 vp;
 	GetClientRect(m_hWnd, &rect);
@@ -60,5 +63,83 @@ void Objects::OnInit() {
 }
 
 void Objects::OnUpdate() {
+	int i, j;
+	static DWORD OldTime;
+	DWORD dwCurTime = GetTickCount();
+	DWORD dwElapsedTime = dwCurTime - OldTime;
+	OldTime = dwCurTime;
 
+	if (GetAsyncKeyState(VK_LEFT) < 0) {
+		if (m_Player.vPos.x - (dwElapsedTime * m_Player.fVelocity) >= -6.0f)
+			m_Player.vPos.x -= dwElapsedTime * m_Player.fVelocity;
+	}
+
+	if (GetAsyncKeyState(VK_RIGHT) < 0) {
+		if (m_Player.vPos.x + (dwElapsedTime * m_Player.fVelocity) <= 6.0f)
+			m_Player.vPos.x += dwElapsedTime * m_Player.fVelocity;
+	}
+
+	if (GetAsyncKeyState(VK_UP) < 0) {
+		if (m_Player.vPos.z + (dwElapsedTime * m_Player.fVelocity) <= 20.0f)
+			m_Player.vPos.z += dwElapsedTime * m_Player.fVelocity;
+	}
+
+	if (GetAsyncKeyState(VK_DOWN) < 0) {
+		if (m_Player.vPos.z - (dwElapsedTime * m_Player.fVelocity) >= -19.0f)
+			m_Player.vPos.z -= dwElapsedTime * m_Player.fVelocity;
+	}
+
+	if (GetAsyncKeyState('S') < 0) {
+		if (dwCurTime - m_Player.dwOldBulletFireTime >= m_Player.dwBulletFireTime) {
+			m_Player.dwOldBulletFireTime = dwCurTime;
+
+			for ( i = 0; i < 10; i++) {
+				if (m_PlayerBullet[i].iLife <= 0) {
+					m_PlayerBullet[i].iLife = 1;
+					m_PlayerBullet[i].vPos = m_Player.vPos;
+					m_PlayerBullet[i].vPos.z = 1.0f;
+					break;
+				}
+			}
+		}
+	}
+
+	for (i = 0; i < 10; i++) {
+		if (m_PlayerBullet[i].iLife > 0) {
+			m_PlayerBullet[i].vPos.z += dwElapsedTime * m_PlayerBulletProperty.fBulletVelocity;
+			if (m_PlayerBullet[i].vPos.z >= 20.0f)
+				m_PlayerBullet[i].iLife = 0;
+			else
+				D3DXMatrixTranslation(&m_PlayerBullet[i].matTranslation, m_PlayerBullet[i].vPos.x, m_PlayerBullet[i].vPos.y, m_PlayerBullet[i].vPos.z);
+		}
+	}
+
+	D3DXMatrixTranslation(&m_Player.matTranslation, m_Player.vPos.x, m_Player.vPos.y, m_Player.vPos.z);
+	m_Player.matWorld = m_Player.matScale * m_Player.matRotationY * m_Player.matTranslation;
+}
+
+void Objects::OnRender() {
+	int i;
+	D3DXMATRIX matWorld;
+	m_Ground.OnRender();
+
+	m_pd3dDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
+	m_pd3dDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
+
+	for (int i = 0; i < 10; i++) {
+		if (m_PlayerBullet[i].iLife > 0) {
+			matWorld = m_PlayerBulletProperty.matScale * m_PlayerBullet[i].matTranslation;
+			m_pd3dDevice->SetTransform(D3DTS_WORLD, &matWorld);
+			m_PlayerBulletMesh->DrawSubset(0);
+		}
+	}
+
+	m_pd3dDevice->SetTransform(D3DTS_WORLD, &m_Player.matWorld);
+	m_PlayerMesh->DrawSubset(0);
+}
+
+void Objects::OnRelease() {
+	m_PlayerMesh->Release();
+	m_PlayerBulletMesh->Release();
+	m_Ground.OnRelease();
 }

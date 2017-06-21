@@ -1,6 +1,6 @@
-#include"Manager.h"
+#include"stdafx.h"
+#include"main.h"
 #include"Objects.h"
-#include"resource.h"
 
 #define MAX_LOADSTRING 100
 

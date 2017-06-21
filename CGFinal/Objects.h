@@ -1,8 +1,9 @@
 #pragma once
+#include"Manager.h"
 #include<d3dx9math.h>
 #include<d3dx9shape.h>
 #include"Ground.h"
-#include"Manager.h"
+
 
 struct BULLET {
 	int iLife;

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Manager.h"
 
 Manager::Manager() {
@@ -10,8 +11,7 @@ HRESULT Manager::InitD3D(HWND hWnd) {
 
 	m_hWnd = hWnd;
 
-	if (NULL == (m_pD3D = Direct3DCreate9(
-		D3D_SDK_VERSION)))
+	if (NULL == (m_pD3D = Direct3DCreate9(D3D_SDK_VERSION)))
 		return E_FAIL;
 
 	D3DPRESENT_PARAMETERS d3dpp;

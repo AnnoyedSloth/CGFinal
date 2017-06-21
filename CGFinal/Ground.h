@@ -3,8 +3,6 @@
 
 class CGround
 {
-
-
 	DWORD m_dwNumVertices, m_dwNumIndices;
 	LPDIRECT3DINDEXBUFFER9	m_pIB;
 	LPDIRECT3DVERTEXBUFFER9	m_pVB;

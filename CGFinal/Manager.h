@@ -7,6 +7,7 @@ protected:
 	LPDIRECT3DDEVICE9	m_pd3dDevice;
 	HWND m_hWnd;
 
+protected:
 	virtual void OnInit() = 0;
 	virtual void OnRender() = 0;
 	virtual void OnUpdate() = 0;
@@ -18,7 +19,7 @@ public:
 	void Update();
 	void Cleanup();
 
+public:
 	Manager(void);
 	~Manager(void);
-
 };
