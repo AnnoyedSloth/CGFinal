@@ -19,18 +19,32 @@ struct BULLET_PROPERTY {
 
 struct PLAYER {
 	int iLife;
-	D3DXVECTOR3 vPos;
+
 	float fScale;
 	float fRotationY;
 	float fVelocity;
 
 	DWORD dwBulletFireTime;
 	DWORD dwOldBulletFireTime;
+	DWORD dwPlayerDiffuse;
 
 	D3DXMATRIX	matWorld;
 	D3DXMATRIX	matScale;
 	D3DXMATRIX	matRotationY;
 	D3DXMATRIX	matTranslation;
+
+	LPDIRECT3D9         g_pD3D = NULL; // Used to create the D3DDevice
+	LPDIRECT3DDEVICE9   g_pd3dDevice = NULL; // Our rendering device
+
+	LPD3DXMESH          g_pMesh = NULL; // Our mesh object in sysmem
+	D3DMATERIAL9*       g_pMeshMaterials = NULL; // Materials for our mesh
+	LPDIRECT3DTEXTURE9* g_pMeshTextures = NULL; // Textures for our mesh
+	DWORD               g_dwNumMaterials = 0L;   // Number of mesh materials
+
+public:
+	D3DXVECTOR3 vPos;
+	HRESULT PlayerInit(LPDIRECT3DDEVICE9 g_pd3dDevice, LPD3DXMESH *m_PlayerMesh);
+	void Render();
 };
 
 class Objects : public Manager {

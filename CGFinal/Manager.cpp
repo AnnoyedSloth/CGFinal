@@ -23,9 +23,9 @@ HRESULT Manager::InitD3D(HWND hWnd) {
 	d3dpp.EnableAutoDepthStencil = TRUE;
 	d3dpp.AutoDepthStencilFormat = D3DFMT_D24S8;
 
-	if (FAILED(m_pD3D->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_pd3dDevice))) {
-		return E_FAIL;
-	}
+	if (FAILED(m_pD3D->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd,														  D3DCREATE_SOFTWARE_VERTEXPROCESSING, 
+									&d3dpp, &m_pd3dDevice))) return E_FAIL;
+	
 
 	m_pd3dDevice->SetRenderState(D3DRS_ZENABLE, TRUE);
 

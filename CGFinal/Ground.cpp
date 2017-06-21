@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "Ground.h"
 #include <stdio.h>
 #include <conio.h>
@@ -42,7 +42,7 @@ void CGround::Create(LPDIRECT3DDEVICE9 pd3dDevice, int nRow, int nCol, float fSi
 			pGroundVertex[nIndex].vPos.x = vPos0.x + (fSize * x);
 			pGroundVertex[nIndex].vPos.y = 0.0f;
 			pGroundVertex[nIndex].vPos.z = vPos0.z + -1.0f*(fSize * z);
-			pGroundVertex[nIndex].dwDiffuse = D3DCOLOR_RGBA(255, 50, 255, 255);
+			pGroundVertex[nIndex].dwDiffuse = D3DCOLOR_RGBA(255, 0, 255, 100);
 			nIndex++;
 		}
 	}
@@ -50,14 +50,14 @@ void CGround::Create(LPDIRECT3DDEVICE9 pd3dDevice, int nRow, int nCol, float fSi
 	//Note: 버텍스 버퍼 생성 
 	if (m_pd3dDevice->CreateVertexBuffer(m_dwNumVertices * sizeof(GROUNDVERTEX), 0, D3DFVF_GROUNDVERTEX, D3DPOOL_DEFAULT, &m_pVB, 0) != D3D_OK)
 	{
-		MessageBox(NULL, "정정 버퍼 생성 Error", "Error", MB_OK);
+		MessageBox(NULL, L"정점 버퍼 생성 Error", L"Error", MB_OK);
 		return;
 	}
 
 	void *pVertices;
 	if (m_pVB->Lock(0, 0, &pVertices, NULL) != D3D_OK) // 2번째 매개변수는 전체를 lock하는 값 0	
 	{
-		MessageBox(NULL, "정정 버퍼 lock Error", "Error", MB_OK);
+		MessageBox(NULL, L"정점 버퍼 lock Error", L"Error", MB_OK);
 		return;
 	}
 

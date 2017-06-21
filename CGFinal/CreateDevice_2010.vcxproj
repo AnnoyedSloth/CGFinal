@@ -368,24 +368,26 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="DXUT\Optional\directx.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Objects.cpp" />
+    <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="02D3DApp.ico" />
+    <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Objects.h" />
     <CLInclude Include="resource.h" />
-    <ResourceCompile Include="CreateDevice.rc" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ResourceCompile Include="02D3DApp.rc" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

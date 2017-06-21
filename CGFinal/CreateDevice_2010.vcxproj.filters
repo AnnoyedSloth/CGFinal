@@ -16,11 +16,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DXUT\Optional\directx.ico">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="Ground.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -33,11 +28,11 @@
     <ClCompile Include="Objects.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="CreateDevice.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
     <ClInclude Include="Ground.h">
       <Filter>Header</Filter>
     </ClInclude>
@@ -52,5 +47,24 @@
     <ClInclude Include="Objects.h">
       <Filter>Header</Filter>
     </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="02D3DApp.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="small.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="02D3DApp.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
