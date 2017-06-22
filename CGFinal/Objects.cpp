@@ -161,10 +161,10 @@ void Objects::OnInit() {
 		else
 			m_Enemy[i].vPos.x = (float)nRandomNum;
 
-		m_Enemy[i].vPos.y = 0.0f;
+		m_Enemy[i].vPos.y = 1.0f;
 		m_Enemy[i].vPos.z = 40.0f;
 
-		D3DXMatrixTranslation(&m_Enemy[i].matTranslation, m_Enemy[i].vPos.x, m_Enemy[i].vPos.y, m_Enemy[i].vPos.z);
+		D3DXMatrixTranslation(&m_Enemy[i].matTranslation, m_Enemy[i].vPos.x, m_Enemy[i].vPos.y+1.0f, m_Enemy[i].vPos.z);
 	}
 
 	m_EnemyBulletProperty.fBulletVelocity = 0.01f;

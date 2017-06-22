@@ -52,7 +52,7 @@ void CGround::Create(LPDIRECT3DDEVICE9 pd3dDevice, int nRow, int nCol, float fSi
 			pGroundVertex[nIndex].vPos.x = vPos0.x + (fSize * x);
 			pGroundVertex[nIndex].vPos.y = 0.0f;
 			pGroundVertex[nIndex].vPos.z = vPos0.z + -1.0f*(fSize * z);
-			pGroundVertex[nIndex].dwDiffuse = D3DCOLOR_RGBA(255, 255, 255, 100);
+			pGroundVertex[nIndex].dwDiffuse = D3DCOLOR_RGBA(255, 0, 255, 100);
 			nIndex++;
 		}
 	}
