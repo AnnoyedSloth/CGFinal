@@ -6,7 +6,8 @@ class CGround
 	DWORD m_dwNumVertices, m_dwNumIndices;
 	LPDIRECT3DINDEXBUFFER9	m_pIB;
 	LPDIRECT3DVERTEXBUFFER9	m_pVB;
-	LPDIRECT3DDEVICE9		m_pd3dDevice;
+	LPDIRECT3DDEVICE9		m_pd3dDevice_G;
+	LPDIRECT3DTEXTURE9		m_pTexture_G;
 	int m_nCol, m_nRow;
 
 public:
